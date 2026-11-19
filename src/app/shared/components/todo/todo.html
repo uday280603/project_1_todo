@@ -1,0 +1,21 @@
+@if (todoData().length > 0) {
+  <ul class="list-group">
+    @for (todo of todoData(); track todo.todoId) {
+      <li class="list-group-item d-flex justify-content-between">
+        <p>{{ todo.todoItem }}</p>
+
+        <div>
+          <button class="btn btn-sm btn-primary mr-1" (click)="onEditTodo(todo)">
+            Edit
+          </button>
+
+          <button class="btn btn-sm btn-danger " (click)="onRemoveTodo(todo.todoId)">
+            Remove
+          </button>
+        </div>
+      </li>
+    }
+  </ul>
+} @else {
+  <p class="bg-danger text-white text-center">NO Data Found..!</p>
+}

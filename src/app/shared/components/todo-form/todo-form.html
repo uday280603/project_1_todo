@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <form (submit)="onAddTodo($event)">
+      <div class="form-group">
+        <label for="todoItem">Todo Item*</label>
+        <input type="text" id="todoItem" class="form-control" [formField]="todoForm.todoItem" />
+      </div>
+      <div class="form-group">
+        <label for="isCompleted">Is Complete*</label>
+        <input type="checkbox"  [formField]="todoForm.isCompleted">
+      </div>
+
+      @if (!isInEditMode) {
+        <button class="btn btn-primary w-100" type="submit">Add Todo</button>
+      } @else {
+        <button class="btn btn-warning w-100" type="button" (click)="onUpdateTodo()">Update Todo</button>
+      }
+    </form>
+  </div>
+</div>
